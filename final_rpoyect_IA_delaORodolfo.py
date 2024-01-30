@@ -24,6 +24,9 @@ def procesar_imagen(imagen_mapa,canvas_imagen):
         # Convertir la imagen a escala de grises
         imagen_gris = cv2.cvtColor(imagen_mapa, cv2.COLOR_BGR2GRAY)
 
+        # Convertir la imagen a espacio de color HSV
+        #imagen_hsv = cv2.cvtColor(imagen_mapa, cv2.COLOR_BGR2HSV)
+
         # Aplicar umbral para identificar elementos (casas, calles, etc.)
         _, imagen_umbral = cv2.threshold(imagen_gris, 150, 255, cv2.THRESH_BINARY)
 
@@ -34,8 +37,8 @@ def procesar_imagen(imagen_mapa,canvas_imagen):
         cv2.drawContours(imagen_mapa, contornos, -1, (0, 255, 0), 2)
 
         # Calcular la densidad de contornos por área y encontrar regiones densas
-        umbral_densidad = 8  # Aumentar densidad a voluntad #Lerma funciono 15
-                            #Parece ser que densidad para todo TOLUCA sirve 6 maso menos.
+        umbral_densidad = 20  # Aumentar densidad a voluntad #Lerma funciono 15
+                            #Parece ser que densidad para todo TOLUCA sirve 6-8 maso menos.
 
 
         regiones_densas = []
@@ -142,7 +145,4 @@ def actualizar_canvas(imagen_cv2, canvas_imagen):
 
 # Mostrar la ventana
 ventana.mainloop()
-
-
-
 
