@@ -1,3 +1,6 @@
+**Please Rely on Final_Ver_4.0**
+
+**final_rpoyect-IA_delaORodolfo does NOT work**
 # AI-Public-Transport
 This AI gathers information from your city, and gives you the possible outcome on how should the city be connected.
 
